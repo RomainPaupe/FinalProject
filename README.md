@@ -3,4 +3,6 @@ NodeJS and Angular project on A4 ESILV
 
 ## Team members
 - Romain PAUPE
-- Yann
+- Yann ?
+- Sandeep PIDUGU
+- Noëmie NURIJANYAN
