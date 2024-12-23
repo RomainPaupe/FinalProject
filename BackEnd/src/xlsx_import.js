@@ -23,7 +23,7 @@ function integerDateToString(serial) {
 }
 function getMovieDataSet() {
     var movies = [];
-    var excelData = loadExcelFile("C:/Users/rpaup/Downloads/Dataset_movies.xlsx");
+    var excelData = loadExcelFile("bdd/Dataset_movies.xlsx");
     for (var _i = 0, excelData_1 = excelData; _i < excelData_1.length; _i++) {
         var movie = excelData_1[_i];
         movie["Release Date"] = integerDateToString(movie["Release Date"]);
@@ -34,7 +34,7 @@ function getMovieDataSet() {
 exports.getMovieDataSet = getMovieDataSet;
 function getReviewDataSet() {
     var reviews = [];
-    var excelData = loadExcelFile("C:/Users/rpaup/Downloads/Dataset_review.xlsx");
+    var excelData = loadExcelFile("bdd/Dataset_review.xlsx");
     for (var _i = 0, excelData_2 = excelData; _i < excelData_2.length; _i++) {
         var review = excelData_2[_i];
         review['Date'] = integerDateToString(review['Date']);

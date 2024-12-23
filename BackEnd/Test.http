@@ -1,0 +1,28 @@
+### GET list of all the movies
+GET http://localhost:8080/api/movies
+
+### GET list of all the rewiews
+GET http://localhost:8080/api/reviews
+
+### GET list of the 10 best rate movies
+GET http://localhost:8080/api/topTenMovies
+
+### GET a movie based on his id
+GET http://localhost:8080/api/movie/4
+
+### GET reviews of a specific movie
+GET http://localhost:8080/api/reviewsMovie/3
+
+### POST new review
+POST http://localhost:8080/api/newReview
+Content-Type: application/json
+
+{
+  "movieID" : "3",
+  "firstName" : "Niels",
+  "lastName" : "Hegeman",
+  "date" :  "22/12/2024",
+  "rate" : "5",
+  "comment": "Love it ! "
+}
+###
