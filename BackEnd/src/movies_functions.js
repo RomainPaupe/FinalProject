@@ -1,10 +1,16 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.getReviewsOfMovie = exports.getTopTenMovies = exports.attributRateToMovies = void 0;
 function calculateMean(numbers) {
+<<<<<<< Updated upstream
     const sum = numbers.reduce((acc, num) => acc + num, 0);
     const mean = sum / numbers.length;
     return mean;
+=======
+    var sum = numbers.reduce(function (acc, num) { return acc + num; }, 0);
+    var mean = sum / numbers.length;
+    return Math.round(mean * 100) / 100;
+>>>>>>> Stashed changes
 }
 function attributRateToMovies(movies, reviews) {
     let reviews_list = new Array(movies.length).fill([]).map(() => []);

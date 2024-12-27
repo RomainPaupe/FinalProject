@@ -27,8 +27,7 @@
               }
             ],
             "styles": [
-              "src/styles.css"
-            ],
+              "src/styles.css"],
             "scripts": [],
             "server": "src/main.server.ts",
             "outputMode": "server",
@@ -62,6 +61,9 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "proxyConfig": "proxy.conf.json"
+          },
           "configurations": {
             "production": {
               "buildTarget": "FrontEnd:build:production"
@@ -90,8 +92,7 @@
               }
             ],
             "styles": [
-              "src/styles.css"
-            ],
+              "src/styles.css"],
             "scripts": []
           }
         }
