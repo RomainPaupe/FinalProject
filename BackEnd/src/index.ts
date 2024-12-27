@@ -20,6 +20,32 @@ app.get('/api/reviews', (req: Request, res: Response) => {
     res.send(reviews)
 })
 
+app.get('/api/statistics/:id', (req: Request, res: Response) => {
+    const movieID = +req.params.id;
+    const movie = movies.find(m => m.ID === movieID);
+    const movieReviews = reviews.filter(review => review["Movie ID"] === movieID);
+
+    if (!movie) {
+        res.status(404).send(`Movie not found with ID: ${movieID}`);
+        return;
+    }
+
+    if (movieReviews.length === 0) {
+        res.status(404).send(`No reviews found for the movie with ID: ${movieID}`);
+        return;
+    }
+
+    const starCounts = Array(6).fill(0);
+    for (const review of movieReviews) {
+        const rate = Math.round(review["Rate"]);
+        if (rate >= 0 && rate <= 5) {
+            starCounts[rate]++;
+        }
+    }
+
+    res.send({ movieID, title: movie.Title, starCounts });
+});
+
 app.get('/api/topTenMovies', (req: Request, res : Response) => {
     res.send(topTenMovies)
 })
@@ -40,6 +66,7 @@ app.get('/api/reviewsMovie/:movieID', (req: Request, res: Response) => {
     res.send(reviewsMovie)
 })
 
+// @ts-ignore
 app.post('/api/newReview', function (req: Request, res: Response){
     if (!req.body) {
         return res.status(400).send('Missing prioritys');

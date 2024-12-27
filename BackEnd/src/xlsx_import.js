@@ -1,5 +1,5 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.getReviewDataSet = exports.getMovieDataSet = void 0;
 const XLSX = require('xlsx');
 const path = require('path');
@@ -23,14 +23,8 @@ function integerDateToString(serial) {
 }
 function getMovieDataSet() {
     var movies = [];
-<<<<<<< Updated upstream
-    const excelData = loadExcelFile("bdd/Dataset_movies.xlsx");
+    const excelData = loadExcelFile("./bdd/Dataset_movies.xlsx");
     for (const movie of excelData) {
-=======
-    var excelData = loadExcelFile("./bdd/Dataset_movies.xlsx");
-    for (var _i = 0, excelData_1 = excelData; _i < excelData_1.length; _i++) {
-        var movie = excelData_1[_i];
->>>>>>> Stashed changes
         movie["Release Date"] = integerDateToString(movie["Release Date"]);
         movies.push(movie);
     }
@@ -39,14 +33,8 @@ function getMovieDataSet() {
 exports.getMovieDataSet = getMovieDataSet;
 function getReviewDataSet() {
     var reviews = [];
-<<<<<<< Updated upstream
-    const excelData = loadExcelFile("bdd/Dataset_review.xlsx");
+    const excelData = loadExcelFile("./bdd/Dataset_review.xlsx");
     for (const review of excelData) {
-=======
-    var excelData = loadExcelFile("./bdd/Dataset_review.xlsx");
-    for (var _i = 0, excelData_2 = excelData; _i < excelData_2.length; _i++) {
-        var review = excelData_2[_i];
->>>>>>> Stashed changes
         review['Date'] = integerDateToString(review['Date']);
         reviews.push(review);
     }
