@@ -44,7 +44,7 @@ The user has to put at least one criteria to search for a movie, for example an 
 
 Another example with a search by rating. The search displays all the movies that have a rating between the rating entered and the rating entered + 0.5 :
 
-![image](https://github.com/user-attachments/assets/7e6356cc-0993-40cd-ab5b-76bdd2bb0a9a)
+![image](https://github.com/user-attachments/assets/d70237e4-135c-46b4-b3f1-3b0db0813d17)
 
 Every movie displayed has a button "View Details". When clicked we get to the movie detail page : 
 
