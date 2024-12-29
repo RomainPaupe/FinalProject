@@ -40,7 +40,7 @@ If the filters entered by the user don't work, an error message shows up :
 
 The user has to put at least one criteria to search for a movie, for example an actor : 
 
-![image](https://github.com/user-attachments/assets/82f7d410-c0ec-4427-b02c-e5168eba4fbb)
+![image](https://github.com/user-attachments/assets/1952d32e-e73a-40d4-9122-50e4386fd3c2)
 
 Another example with a search by rating. The search displays all the movies that have a rating between the rating entered and the rating entered + 0.5 :
 
