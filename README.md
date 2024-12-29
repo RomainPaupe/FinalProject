@@ -28,7 +28,7 @@ The site opens on the home page :
 
 Clicking on the "Top 10 Movies" button, we get to the top ten movie page : 
 
-![image](https://github.com/user-attachments/assets/31fe1df1-a151-468f-af7e-8c3a7c9017b4)
+![image](https://github.com/user-attachments/assets/87ede5e6-5a8a-4f7d-b946-117532da2434)
 
 Clicking on the "Search Movie" button, we get to the search page : 
 
@@ -48,24 +48,27 @@ Another example with a search by rating. The search displays all the movies that
 
 Every movie displayed has a button "View Details". When clicked we get to the movie detail page : 
 
-![image](https://github.com/user-attachments/assets/b4c1a08b-6196-45e7-968d-f54d7fabb15b)
+![image](https://github.com/user-attachments/assets/96d3aa2a-22a7-4601-883b-8bdb7c245c8a)
 
 Clicking on the "Statistics" button gets us to the movie statistics page that displays a HighCharts for every review posted on this movie : 
 
-![image](https://github.com/user-attachments/assets/8d073819-32c2-4c68-93f3-78353f50c477)
+![image](https://github.com/user-attachments/assets/69d8aabc-5ad2-4652-837f-bd9b7b894f3a)
 
 Clicking on the "Rate Movie" button gets us to the rate movie page : 
 
 ![image](https://github.com/user-attachments/assets/64c16921-41ad-42e2-8e9f-94d72a8f5614)
 
+We add a new review : 
+
+![image](https://github.com/user-attachments/assets/16dae4e0-7eed-4c14-8f3a-922c3d39cc0c)
 
 Here we added a new review of 5 star to the movie Inception. We can see that this review has been sucessfully added. We can see the difference on the average rate of the movie in its details page : 
 
-![image](https://github.com/user-attachments/assets/648b213d-2a33-4dd0-8959-b6f83b2369aa)
+![image](https://github.com/user-attachments/assets/c6fca393-cfbe-4b9d-b32d-fb972e3a0908)
 
 The movie rating went from 2.75 to 3.2. We can also see it on the HighCharts : 
 
-![image](https://github.com/user-attachments/assets/c6fca393-cfbe-4b9d-b32d-fb972e3a0908)
+![image](https://github.com/user-attachments/assets/0b31b9b0-9fcb-44f9-b97e-c785f6105ba8)
 
 And the top 10 movie gets affected : 
 
