@@ -1,1 +1,17 @@
-<p>statistic-page works!</p>
+<div class="page-container">
+  <h1 class="page-title">Statistic Page of {{ movieTitle }}</h1>
+  <div style="margin-top: 20px;">
+    <div *ngIf="chartOptions.series?.length; else loading">
+    <highcharts-chart
+      [Highcharts]="Highcharts"
+      [options]="chartOptions"
+      style="width: 100%; height: 400px; display: block;">
+    </highcharts-chart>
+    </div>
+  </div>
+  <ng-template #loading>
+    <p>Loading statistics...</p>
+  </ng-template>
+  <br>
+  <button routerLink="/" class="btn">Home</button>
+</div>

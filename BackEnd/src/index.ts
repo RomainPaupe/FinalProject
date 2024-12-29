@@ -1,27 +1,8 @@
-// @ts-ignore
 import * as express from 'express'
-// @ts-ignore
 import { Request, Response} from 'express';
 import {getMovieDataSet, getReviewDataSet} from "./xlsx_import";
 import {attributRateToMovies, getReviewsOfMovie, getTopTenMovies} from "./movies_functions"
 const app = express();
-
-const swaggerJsdoc = require('swagger-jsdoc');
-const swaggerUi = require("swagger-ui-express");
-
-
-const swaggerOptions = {
-    definition: {
-        openapi: "3.1.0",
-        info: { title: "Todo Rest API" },
-        servers : [ { url: "http://localhost:8080"}],
-    },
-    apis: ["src/swagger.ts"]
-}
-
-const swaggerDoc = swaggerJsdoc(swaggerOptions);
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
-
 
 let movies = getMovieDataSet()
 const reviews = getReviewDataSet()
@@ -38,6 +19,32 @@ app.get('/api/movies', (req: Request, res: Response) => {
 app.get('/api/reviews', (req: Request, res: Response) => {
     res.send(reviews)
 })
+
+app.get('/api/statistics/:id', (req: Request, res: Response) => {
+    const movieID = +req.params.id;
+    const movie = movies.find(m => m.ID === movieID);
+    const movieReviews = reviews.filter(review => review["Movie ID"] === movieID);
+
+    if (!movie) {
+        res.status(404).send(`Movie not found with ID: ${movieID}`);
+        return;
+    }
+
+    if (movieReviews.length === 0) {
+        res.status(404).send(`No reviews found for the movie with ID: ${movieID}`);
+        return;
+    }
+
+    const starCounts = Array(6).fill(0);
+    for (const review of movieReviews) {
+        const rate = Math.round(review["Rate"]);
+        if (rate >= 0 && rate <= 5) {
+            starCounts[rate]++;
+        }
+    }
+
+    res.send({ movieID, title: movie.Title, starCounts });
+});
 
 app.get('/api/topTenMovies', (req: Request, res : Response) => {
     res.send(topTenMovies)
@@ -59,6 +66,7 @@ app.get('/api/reviewsMovie/:movieID', (req: Request, res: Response) => {
     res.send(reviewsMovie)
 })
 
+// @ts-ignore
 app.post('/api/newReview', function (req: Request, res: Response){
     if (!req.body) {
         return res.status(400).send('Missing prioritys');
@@ -76,6 +84,5 @@ app.listen(8080, () => {
         '\nGet topTenMovies : http://localhost:8080/api/topTenMovies' +
         '\nGet topTenMovies : http://localhost:8080/api/movie/4' +
         '\nPost new Review : http://localhost:8080/api/newReview' +
-        '\nGET reviews of a movie : http://localhost:8080/api/reviewsMovie/3' +
-        '\nSwagger : http://localhost:8080/api-docs');
+        '\nGET reviews of a movie : http://localhost:8080/api/reviewsMovie/3');
 });

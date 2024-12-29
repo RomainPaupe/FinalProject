@@ -1,1 +1,21 @@
-<p>movie-detail-page works!</p>
+<div class="movie-detail-container" *ngIf="movie; else loading">
+  <h1>{{ movie.Title }}</h1>
+  <img [src]="movie.Image ? movie.Image : 'assets/default-poster.png'" [alt]="movie.Title" class="movie-poster" />
+
+  <div class="movie-info">
+    <p><strong>Genre:</strong> {{ movie.Genre }}</p>
+    <p><strong>Director:</strong> {{ movie.Director }}</p>
+    <p><strong>Actors:</strong> {{ movie.Actors }}</p>
+    <p><strong>Rating:</strong> {{ movie.Rate }}</p>
+    <p><strong>Synopsis:</strong> {{ movie.Synopsis }}</p>
+  </div>
+  <div class="button-group">
+    <button [routerLink]="['/statistics', movie.ID]" class="btn">Statistics</button>
+    <button routerLink="/home" class="btn">Back to Home</button>
+  </div>
+</div>
+
+
+<ng-template #loading>
+  <p>Loading movie details...</p>
+</ng-template>

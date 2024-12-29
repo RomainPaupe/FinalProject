@@ -4,7 +4,7 @@ exports.getReviewsOfMovie = exports.getTopTenMovies = exports.attributRateToMovi
 function calculateMean(numbers) {
     const sum = numbers.reduce((acc, num) => acc + num, 0);
     const mean = sum / numbers.length;
-    return mean;
+    return Math.round(mean * 100) / 100;
 }
 function attributRateToMovies(movies, reviews) {
     let reviews_list = new Array(movies.length).fill([]).map(() => []);

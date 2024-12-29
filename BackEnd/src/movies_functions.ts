@@ -1,7 +1,7 @@
 function calculateMean(numbers: number[]): number {
     const sum = numbers.reduce((acc, num) => acc + num, 0);
     const mean = sum / numbers.length;
-    return mean;
+    return Math.round(mean*100)/100;
 }
 
 export function attributRateToMovies(movies: any[], reviews: any[]) {

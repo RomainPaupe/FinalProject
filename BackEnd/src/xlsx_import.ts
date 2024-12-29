@@ -23,7 +23,7 @@ function integerDateToString(serial: number): string {
 
 export function getMovieDataSet() {
     var movies = []
-    const excelData = loadExcelFile("bdd/Dataset_movies.xlsx");
+    const excelData = loadExcelFile("./bdd/Dataset_movies.xlsx");
     for (const movie of excelData) {
         movie["Release Date"] = integerDateToString(movie["Release Date"])
         movies.push(movie)
@@ -34,7 +34,7 @@ export function getMovieDataSet() {
 
 export function getReviewDataSet() {
     var reviews = []
-    const excelData = loadExcelFile("bdd/Dataset_review.xlsx");
+    const excelData = loadExcelFile("./bdd/Dataset_review.xlsx");
     for (const review of excelData) {
         review['Date'] = integerDateToString(review['Date'])
         reviews.push(review)

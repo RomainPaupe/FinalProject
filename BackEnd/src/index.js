@@ -1,22 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-// @ts-ignore
 const express = require("express");
 const xlsx_import_1 = require("./xlsx_import");
 const movies_functions_1 = require("./movies_functions");
 const app = express();
-const swaggerJsdoc = require('swagger-jsdoc');
-const swaggerUi = require("swagger-ui-express");
-const swaggerOptions = {
-    definition: {
-        openapi: "3.1.0",
-        info: { title: "Todo Rest API" },
-        servers: [{ url: "http://localhost:8080" }],
-    },
-    apis: ["src/swagger.ts"]
-};
-const swaggerDoc = swaggerJsdoc(swaggerOptions);
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 let movies = (0, xlsx_import_1.getMovieDataSet)();
 const reviews = (0, xlsx_import_1.getReviewDataSet)();
 movies = (0, movies_functions_1.attributRateToMovies)(movies, reviews);
@@ -28,6 +15,27 @@ app.get('/api/movies', (req, res) => {
 });
 app.get('/api/reviews', (req, res) => {
     res.send(reviews);
+});
+app.get('/api/statistics/:id', (req, res) => {
+    const movieID = +req.params.id;
+    const movie = movies.find(m => m.ID === movieID);
+    const movieReviews = reviews.filter(review => review["Movie ID"] === movieID);
+    if (!movie) {
+        res.status(404).send(`Movie not found with ID: ${movieID}`);
+        return;
+    }
+    if (movieReviews.length === 0) {
+        res.status(404).send(`No reviews found for the movie with ID: ${movieID}`);
+        return;
+    }
+    const starCounts = Array(6).fill(0);
+    for (const review of movieReviews) {
+        const rate = Math.round(review["Rate"]);
+        if (rate >= 0 && rate <= 5) {
+            starCounts[rate]++;
+        }
+    }
+    res.send({ movieID, title: movie.Title, starCounts });
 });
 app.get('/api/topTenMovies', (req, res) => {
     res.send(topTenMovies);
@@ -47,6 +55,7 @@ app.get('/api/reviewsMovie/:movieID', (req, res) => {
     const reviewsMovie = (0, movies_functions_1.getReviewsOfMovie)(reviews, movieID);
     res.send(reviewsMovie);
 });
+// @ts-ignore
 app.post('/api/newReview', function (req, res) {
     if (!req.body) {
         return res.status(400).send('Missing prioritys');
@@ -62,7 +71,6 @@ app.listen(8080, () => {
         '\nGet topTenMovies : http://localhost:8080/api/topTenMovies' +
         '\nGet topTenMovies : http://localhost:8080/api/movie/4' +
         '\nPost new Review : http://localhost:8080/api/newReview' +
-        '\nGET reviews of a movie : http://localhost:8080/api/reviewsMovie/3' +
-        '\nSwagger : http://localhost:8080/api-docs');
+        '\nGET reviews of a movie : http://localhost:8080/api/reviewsMovie/3');
 });
 //# sourceMappingURL=index.js.map
