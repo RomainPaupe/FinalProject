@@ -36,7 +36,7 @@ Clicking on the "Search Movie" button, we get to the search page :
 
 If the filters entered by the user don't work, an error message shows up :
 
-![image](https://github.com/user-attachments/assets/d5518765-a2cc-4086-b142-e6fa08271e5d)
+![image](https://github.com/user-attachments/assets/f2481a24-04c1-45fe-abe7-78c6c57da06c)
 
 The user has to put at least one criteria to search for a movie, for example an actor : 
 
