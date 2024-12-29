@@ -1,1 +1,29 @@
-<p>rate-page works!</p>
+<div class="rate-container">
+  <h1>Rate the Movie</h1>
+  <form [formGroup]="rateForm" (ngSubmit)="submitReview()">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" formControlName="firstName" placeholder="Enter your first name" required />
+    <div *ngIf="rateForm.get('firstName')?.invalid && rateForm.get('firstName')?.touched">
+      <p class="error">First name is required.</p>
+    </div>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" formControlName="lastName" placeholder="Enter your last name" required />
+    <div *ngIf="rateForm.get('lastName')?.invalid && rateForm.get('lastName')?.touched">
+      <p class="error">Last name is required.</p>
+    </div>
+
+    <label for="rate">Rating (1-5):</label>
+    <input type="number" id="rate" formControlName="rate" min="1" max="5" required />
+    <div *ngIf="rateForm.get('rate')?.invalid && rateForm.get('rate')?.touched">
+      <p class="error">Rating must be between 1 and 5.</p>
+    </div>
+
+    <label for="comment">Comment (optional):</label>
+    <textarea id="comment" formControlName="comment" placeholder="Enter your comment"></textarea>
+
+    <button type="submit" [disabled]="rateForm.invalid">Submit</button>
+    <button type="button" (click)="router.navigate(['/movie', movieID])">Cancel</button>
+    <button type="button" routerLink="/home">Home</button>
+  </form>
+</div>

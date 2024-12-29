@@ -52,6 +52,7 @@ export class SearchPageComponent {
 
     this.movieService.searchMovies(this.searchCriteria).pipe(
       tap((movies: any[]) => {
+        console.log('Movies Received from Backend:', movies);
         this.movies = movies;
       }),
       tap({

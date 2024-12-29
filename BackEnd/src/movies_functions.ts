@@ -1,3 +1,5 @@
+import * as XLSX from 'xlsx';
+
 function calculateMean(numbers: number[]): number {
     const sum = numbers.reduce((acc, num) => acc + num, 0);
     const mean = sum / numbers.length;
@@ -23,27 +25,23 @@ export function attributRateToMovies(movies: any[], reviews: any[]) {
     return movies
 }
 
-export function getTopTenMovies(movies: any[]){
-    let topTenMovies : any[] = []
-    let topTenMoviesIndex : any[] = []
-    let moviesRates : number[] = []
+export function getTopTenMovies(movies: any[]): any[] {
+    let topTenMovies: any[] = [];
+    let moviesRates: { rate: number, index: number }[] = [];
 
-    for(const movie of movies){
-        moviesRates.push(movie["Rate"])
-    }
+    movies.forEach((movie, index) => {
+        moviesRates.push({ rate: movie["Rate"], index });
+    });
 
-    for(let i = 0; i < 10; i++){
-        const maxRate : number = Math.max(...moviesRates)
-        const indexMovie : number = moviesRates.indexOf(maxRate)
-        moviesRates[indexMovie] = 0
-        topTenMoviesIndex.push(indexMovie)
-    }
+    moviesRates.sort((a, b) => b.rate - a.rate);
+
+    const topTenMoviesIndex = moviesRates.slice(0, 10).map(movie => movie.index);
 
     for (const index of topTenMoviesIndex) {
-        topTenMovies.push(movies[index])
+        topTenMovies.push(movies[index]);
     }
 
-    return topTenMovies
+    return topTenMovies;
 }
 
 export function getReviewsOfMovie(reviews: any[], movieID : number){
@@ -54,4 +52,16 @@ export function getReviewsOfMovie(reviews: any[], movieID : number){
         }
     }
     return reviewsMovie
+}
+
+export function saveReviewsToExcel(reviews: any[], filePath: string): void {
+    try {
+        const worksheet = XLSX.utils.json_to_sheet(reviews);
+        const workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, 'Reviews');
+        XLSX.writeFile(workbook, filePath);
+    } catch (error) {
+        console.error('Error saving reviews to Excel:', error);
+        throw error;
+    }
 }

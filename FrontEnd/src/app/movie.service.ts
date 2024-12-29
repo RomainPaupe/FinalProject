@@ -17,6 +17,8 @@ export class MovieService {
         params[key] = criteria[key];
       }
     });
+
+    console.log('Query Parameters Sent to Backend:', params);
     return this.http.get<any[]>(this.apiUrl, { params });
   }
 
@@ -31,5 +33,10 @@ export class MovieService {
   getMovieStatistics(movieID: string | null) {
     return this.http.get<{ movieID: number, title: string, starCounts: number[] }>(`/api/statistics/${movieID}`);
   }
+
+  submitReview(review: {movieID: string; firstName: string; lastName: string; rate: number; comment: string }) {
+    return this.http.post('/api/newReview', review);
+  }
+
 
 }

@@ -36,4 +36,19 @@ export class MovieDetailPageComponent implements OnInit {
 
     );
   }
+
+  loadMovieDetails(): void {
+    const movieId = this.route.snapshot.paramMap.get('id');
+    if (movieId) {
+      this.movieService.getMovieDetails(movieId).subscribe(
+        movie => {
+          this.movie = movie;
+          this.cdr.detectChanges();
+        },
+        error => {
+          console.error('Error fetching movie details:', error);
+        }
+      );
+    }
+  }
 }
