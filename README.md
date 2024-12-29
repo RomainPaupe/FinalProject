@@ -24,7 +24,7 @@ To launch the project :
 
 The site opens on the home page : 
 
-![image](https://github.com/user-attachments/assets/4b53902e-61a3-4fca-9206-dcdd4f867b5b)
+![image](https://github.com/user-attachments/assets/4c1b6b1d-af0f-4dfa-920e-f95d141026d6)
 
 Clicking on the "Top 10 Movies" button, we get to the top ten movie page : 
 
