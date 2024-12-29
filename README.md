@@ -12,3 +12,5 @@ We are proud to deliver our movie discovery website, designed to help users expl
 
 ## Project repartition
 To efficiently manage our work, we decided to divide the team into two smaller groups. Sandeep and Noémie took responsibility for the front-end development, focusing on creating an intuitive and visually appealing user interface. Meanwhile, Romain and Yann concentrated on back-end development, ensuring the website’s functionality and data management. This division of labor allowed us to streamline our workflow, minimize potential conflicts during the development process, and avoid issues related to commit and push synchronization. By organizing our team this way, we were able to deliver a good project.
+
+## Project URL : https://github.com/RomainPaupe/FinalProject.git
