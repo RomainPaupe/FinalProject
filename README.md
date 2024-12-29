@@ -15,14 +15,59 @@ To efficiently manage our work, we decided to divide the team into two smaller g
 
 ## Project URL : https://github.com/RomainPaupe/FinalProject.git
 
-Pour lancer le projet : 
+To launch the project : 
 
 `cd backend`
 `backend>node src/index.js`
 `cd frontend`
 `frontend>ng serve`
 
-Le site s'ouvre et affiche : 
+The site opens on the home page : 
 
 ![image](https://github.com/user-attachments/assets/4b53902e-61a3-4fca-9206-dcdd4f867b5b)
+
+Clicking on the "Top 10 Movies" button, we get to the top ten movie page : 
+
+![image](https://github.com/user-attachments/assets/31fe1df1-a151-468f-af7e-8c3a7c9017b4)
+
+Clicking on the "Search Movie" button, we get to the search page : 
+
+![image](https://github.com/user-attachments/assets/c537feaf-567e-4b12-8064-e2af2388f803)
+
+If the filters entered by the user don't work, an error message shows up :
+
+![image](https://github.com/user-attachments/assets/d5518765-a2cc-4086-b142-e6fa08271e5d)
+
+The user has to put at least one criteria to search for a movie, for example an actor : 
+
+![image](https://github.com/user-attachments/assets/82f7d410-c0ec-4427-b02c-e5168eba4fbb)
+
+Another example with a search by rating. The search displays all the movies that have a rating between the rating entered and the rating entered + 0.5 :
+
+![image](https://github.com/user-attachments/assets/7e6356cc-0993-40cd-ab5b-76bdd2bb0a9a)
+
+Every movie displayed has a button "View Details". When clicked we get to the movie detail page : 
+
+![image](https://github.com/user-attachments/assets/b4c1a08b-6196-45e7-968d-f54d7fabb15b)
+
+Clicking on the "Statistics" button gets us to the movie statistics page that displays a HighCharts for every review posted on this movie : 
+
+![image](https://github.com/user-attachments/assets/8d073819-32c2-4c68-93f3-78353f50c477)
+
+Clicking on the "Rate Movie" button gets us to the rate movie page : 
+
+![image](https://github.com/user-attachments/assets/a9e589a6-3a9e-41b7-aa8d-d453dc42dd7c)
+
+Here we added a new review of 5 star to the movie Inception. We can see that this review has been sucessfully added. We can see the difference on the average rate of the movie in its details page : 
+
+![image](https://github.com/user-attachments/assets/648b213d-2a33-4dd0-8959-b6f83b2369aa)
+
+The movie rating went from 2.75 to 3.2. We can also see it on the HighCharts : 
+
+![image](https://github.com/user-attachments/assets/4986c271-6b72-49e5-a53a-d904750fa1f4)
+
+And the top 10 movie gets affected : 
+
+![image](https://github.com/user-attachments/assets/dc4e6caa-a298-4f29-b742-0e6143bbba67)
+
 
