@@ -56,7 +56,8 @@ Clicking on the "Statistics" button gets us to the movie statistics page that di
 
 Clicking on the "Rate Movie" button gets us to the rate movie page : 
 
-![image](https://github.com/user-attachments/assets/a9e589a6-3a9e-41b7-aa8d-d453dc42dd7c)
+![image](https://github.com/user-attachments/assets/64c16921-41ad-42e2-8e9f-94d72a8f5614)
+
 
 Here we added a new review of 5 star to the movie Inception. We can see that this review has been sucessfully added. We can see the difference on the average rate of the movie in its details page : 
 
@@ -64,10 +65,11 @@ Here we added a new review of 5 star to the movie Inception. We can see that thi
 
 The movie rating went from 2.75 to 3.2. We can also see it on the HighCharts : 
 
-![image](https://github.com/user-attachments/assets/4986c271-6b72-49e5-a53a-d904750fa1f4)
+![image](https://github.com/user-attachments/assets/c6fca393-cfbe-4b9d-b32d-fb972e3a0908)
 
 And the top 10 movie gets affected : 
 
-![image](https://github.com/user-attachments/assets/dc4e6caa-a298-4f29-b742-0e6143bbba67)
+![image](https://github.com/user-attachments/assets/666bcb82-4a8b-4319-be4c-bbc3a03db376)
+
 
 
